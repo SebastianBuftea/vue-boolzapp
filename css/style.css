@@ -8,30 +8,47 @@
 body{
     height:700px;
     background-image: linear-gradient(to bottom, rgb(40, 163, 124) 100px, rgb(232, 232, 232) 100px);
+    overflow-y: hidden;
 }
 .dimension_height{
-height: 600px;
-   width: 1200px;
+    height: 600px;
+    width: 1100px;
 }
 .profile{
-    height: 60px;
-    background-color: rgb(158, 255, 2);
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+.grey_{
+    background-color: rgb(227, 227, 227);
+}
+.size_13{
+    font-size: 13px;
+}
+.size_11{
+    font-size: 11px ;
 }
 
 /*  ADRESS BOOK  */
 .notification{
- height: 65px;
+ height: 55px;
  background-color:rgb(97, 206, 231);
 }
-.bell-icon{
-    width: 45px;
-    height: 45px;
+.circle-icon{
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 
-.notification .notif_text{
-    font-size: 14px;
+
+.heigth_30{
+    height: 30px;
 }
-.notification .notif_link{
-    font-size: 12px ;
+::placeholder{
+    font-size: small;
+}
+
+
+/* CONTACT STYLE */
+.height_contacts{
+    height: calc(600px - 161px);
 }
