@@ -16,7 +16,7 @@ body{
 }
 .profile{
     height: 50px;
-    border-bottom: 1px solid black;
+   
 }
 .grey_{
     background-color: rgb(227, 227, 227);
@@ -50,5 +50,8 @@ body{
 
 /* CONTACT STYLE */
 .height_contacts{
-    height: calc(600px - 161px);
+    height: calc(600px - 151px);
+}
+.margin_1{
+    margin-bottom: 1px;
 }
