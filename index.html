@@ -8,8 +8,43 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>BOOLZAP</title>
 </head>
-<body>
+<body class="d-flex justify-content-center align-items-center">
+
+    <!-- create connection with vue -->
     <div id="app">
+
+        <!-- create container  -->
+        <div class="container dimension_height">
+            <div class="row dimension_height d-flex">
+
+                <!-- create  the address book container -->
+                <div class="col-4 border border-dark bg-white p-0 " >
+                    
+                    <!-- my profile div -->
+                    <div class="profile w-100"></div>
+                    
+                    <!-- notification div -->
+                    <div class="notification w-100 d-flex align-items-center p-3 ">
+
+                        <div class="bg-white bell-icon d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-bell-slash fa-lg" style="color: #61cee7;"></i>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center mx-2">
+                            <div class="notif_text">Ricevi notifiche di nuovi messaggi</div>
+                            <a class="notif_link" href="">Attiva notifiche dekstop</a>
+
+                        </div>
+                    </div>
+                </div>
+                   
+                <!-- create  the chat container -->
+                <div class="col-8 border border-dark bg-white p-0">
+                    <!-- chat profile -->
+                    <div class="profile w-100"></div>
+                </div>
+            </div> 
+        </div>
        
 
     </div>

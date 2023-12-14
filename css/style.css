@@ -4,7 +4,34 @@
     box-sizing: border-box;
 }
 
+/* UTILITY */
 body{
-    height: 100vh;
-    background-image: linear-gradient(to bottom, rgb(40, 163, 124) 15vh, rgb(232, 232, 232) 15vh);
+    height:700px;
+    background-image: linear-gradient(to bottom, rgb(40, 163, 124) 100px, rgb(232, 232, 232) 100px);
+}
+.dimension_height{
+height: 600px;
+   width: 1200px;
+}
+.profile{
+    height: 60px;
+    background-color: rgb(158, 255, 2);
+}
+
+/*  ADRESS BOOK  */
+.notification{
+ height: 65px;
+ background-color:rgb(97, 206, 231);
+}
+.bell-icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.notification .notif_text{
+    font-size: 14px;
+}
+.notification .notif_link{
+    font-size: 12px ;
 }
