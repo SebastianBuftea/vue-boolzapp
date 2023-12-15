@@ -6,8 +6,8 @@
 
 /* UTILITY */
 body{
-    height:700px;
-    background-image: linear-gradient(to bottom, rgb(40, 163, 124) 100px, rgb(232, 232, 232) 100px);
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgb(40, 163, 124) 17vh, rgb(232, 232, 232) 17vh);
     overflow-y: hidden;
 }
 .heigth_30{
