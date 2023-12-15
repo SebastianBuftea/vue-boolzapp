@@ -2,6 +2,7 @@ const { createApp } = Vue
 createApp ({
     data() {  
         return{
+            chatSelected:0,
             contacts: [
                     {
                     name: 'Michele',
@@ -171,6 +172,8 @@ createApp ({
     
     },
     methods:{
-
+        chatClick(index){
+            this.chatSelected=index
+        }
     }
 }).mount("#app")

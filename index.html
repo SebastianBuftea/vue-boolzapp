@@ -21,15 +21,15 @@
                 <div class="col-4 border bg-white p-0 " >
                     
                     <!-- my profile div -->
-                    <div class="profile w-100 grey_ d-flex align-items-center justify-content-between">
+                    <div class="grey_container w-100 grey_ d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
                             <img src="./img/avatar_io.jpg" alt="" class="circle-icon mx-2">
                             <div class="size_13 fw-bold">Sofia</div>
                         </div>
                         <div class="d-flex align-items-center mx-2">
-                            <i class="fa-solid fa-circle-notch mx-2" style="color: #999999;"></i>
-                            <i class="fa-solid fa-message mx-2" style="color: #999999;"></i>
-                            <i class="fa-solid fa-ellipsis-vertical mx-2" style="color: #999999;"></i>
+                            <i class="fa-solid fa-circle-notch mx-2 fa-lg" style="color: #999999;"></i>
+                            <i class="fa-solid fa-message mx-2 fa-lg" style="color: #999999;"></i>
+                            <i class="fa-solid fa-ellipsis-vertical mx-2 fa-lg" style="color: #999999;"></i>
                         </div>
                                  
                     </div>
@@ -63,14 +63,17 @@
                       <div class="container height_contacts overflow-auto ">
                         <div class="row">
                             <!-- contacts for -->
-                            <div class="col-12 profile d-flex align-items-center margin_1 bg-white border-bottom border-light-subtle" 
-                                 v-for="(contact, index) in contacts" :key="index"> 
+                            <div class="col-12 grey_container d-flex align-items-center margin_1 bg-white border-bottom border-light-subtle" 
+                                 v-for="(contact, index) in contacts" :key="index"
+                                 @click="chatClick(index)"> 
 
-                                 <!-- image of contact -->
+                                 <!-- image of contact and last message -->
                                     <img :src="contact.avatar" alt="" class=" circle-icon">
                                     <div class=" mx-2">
                                         <div class="size_13 fw-bold">{{contact.name}}</div>
-                                        <div class="size_11 text-secondary">{{contact.messages[contact.messages.length - 1].message}}</div>         
+                                        <div class="size_11 text-secondary">
+                                            {{contact.messages[contact.messages.length - 1].message.slice(0, 30)}} ...
+                                        </div>         
                                     </div>
                             </div>
                             
@@ -81,8 +84,48 @@
                    
                 <!-- create  the chat container -->
                 <div class="col-8 border border-dark bg-white p-0">
-                    <!-- chat profile -->
-                    <div class="profile w-100 grey_"></div>
+
+                    <!-- Chat profile -->
+                    <div class="grey_container w-100 grey_ d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <img :src="contacts[chatSelected].avatar" alt="" class="circle-icon mx-2">
+                                <div class="mx-2">
+                                    <div class="size_13 fw-bold">{{contacts[chatSelected].name}}</div>
+                                    <div class="size_11 text-secondary">
+                                        {{contacts[chatSelected].messages[contacts[chatSelected].messages.length - 1].date}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mx-2">
+                                <i class="fa-solid fa-magnifying-glass mx-2 fa-lg" style="color: #999999;"></i>
+                                <i class="fa-solid fa-paperclip mx-2 fa-lg" style="color: #999999;"></i>
+                                <i class="fa-solid fa-ellipsis-vertical mx-2 fa-lg" style="color: #999999;"></i>
+                            </div>  
+                    </div>
+
+                    <!-- section of messages -->
+                    <div class="messages_container">
+                        <div v-for="(elem, index) in contacts[chatSelected].messages " :key="index">
+                            {{elem.message}}
+                        </div>
+                    </div>
+
+                    <!--write message section  -->
+                    <div class="grey_container w-100 grey_">
+                        <nav class="navbar grey_">
+                            <form class="container-fluid ">
+                              <div class="input-group ">
+                                <span class="input-group-text border-0 grey_" id="basic-addon1">
+                                    <i class="fa-regular fa-face-smile fa-lg" style="color: #999999;"></i>
+                                </span>
+                                <input type="text" class="form-control heigth_40 border-0" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
+                                <span class="input-group-text border-0 grey_" id="basic-addon1">
+                                    <i class="fa-solid fa-microphone fa-lg" style="color: #999999;"></i>
+                                </span>
+                              </div>
+                            </form>
+                          </nav>
+                    </div>
                 </div>
             </div> 
         </div>

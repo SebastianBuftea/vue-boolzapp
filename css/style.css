@@ -14,7 +14,7 @@ body{
     height: 600px;
     width: 1100px;
 }
-.profile{
+.grey_container{
     height: 50px;
    
 }
@@ -43,6 +43,9 @@ body{
 .heigth_30{
     height: 30px;
 }
+.heigth_40{
+    height: 40px;
+}
 ::placeholder{
     font-size: small;
 }
@@ -54,4 +57,9 @@ body{
 }
 .margin_1{
     margin-bottom: 1px;
+}
+/* CHAT SECTION */
+.messages_container{
+    height: 500px;
+    background-image: url(../img/mine.jpg);
 }
