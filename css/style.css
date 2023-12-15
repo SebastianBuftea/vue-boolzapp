@@ -5,6 +5,9 @@
 }
 
 /* UTILITY */
+.w_ss{
+    width: calc(100% - 100px);
+}
 body{
     height: 100vh;
     background-image: linear-gradient(to bottom, rgb(40, 163, 124) 17vh, rgb(232, 232, 232) 17vh);

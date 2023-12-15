@@ -18,13 +18,13 @@
             <div class="row dimension_height d-flex">
 
                 <!-- create  the address book container -->
-                <div class="col-4 border bg-white p-0 " >
+                <div class="col-4 border bg-white p-0 ">
                     
                     <!-- my profile div -->
                     <div class="grey_container w-100 grey_ d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
                             <img src="./img/avatar_io.jpg" alt="" class="circle-icon mx-2">
-                            <div class="size_13 fw-bold">Sofia</div>
+                            <div class="size_13 fw-bold">Tu</div>
                         </div>
                         <div class="d-flex align-items-center mx-2">
                             <i class="fa-solid fa-circle-notch mx-2 fa-lg" style="color: #999999;"></i>
@@ -49,14 +49,14 @@
 
                     <!-- search section -->
                     <nav class="navbar bg-body-tertiary">
-                        <form class="container-fluid ">
-                          <div class="input-group ">
+                       
+                          <div class="input-group m-1">
                             <span class="input-group-text bg-white border-0" id="basic-addon1">
                                 <i class="fa-solid fa-magnifying-glass fa-xs" style="color: #999999;"></i>
                             </span>
-                            <input type="text" class="form-control heigth_30 border-0" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control heigth_30 border-0" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1" @keyup.enter="pippo()">
                           </div>
-                        </form>
+                       
                       </nav>
 
                       <!-- contacts div -->
@@ -119,19 +119,24 @@
 
                     <!--write message section  -->
                     <div class="grey_container w-100 grey_">
-                        <nav class="navbar grey_">
-                            <form class="container-fluid ">
-                              <div class="input-group ">
+                        <nav class="navbar grey_ ">
+                           
                                 <span class="input-group-text border-0 grey_" id="basic-addon1">
                                     <i class="fa-regular fa-face-smile fa-lg" style="color: #999999;"></i>
                                 </span>
-                                <input type="text" class="form-control heigth_40 border-0" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
+                               
+                                    <input type="text" 
+                                    class=" w_ss heigth_40 border-0 p-1" 
+                                    placeholder="Scrivi un messaggio" 
+                                    aria-label="Username" 
+                                    aria-describedby="basic-addon1" 
+                                    v-model="newMessage"
+                                    @keyup.enter="addMessage()">
+
                                 <span class="input-group-text border-0 grey_" id="basic-addon1">
                                     <i class="fa-solid fa-microphone fa-lg" style="color: #999999;"></i>
                                 </span>
-                              </div>
-                            </form>
-                          </nav>
+                        </nav>
                     </div>
                 </div>
             </div> 

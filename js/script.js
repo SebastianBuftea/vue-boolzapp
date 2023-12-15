@@ -2,6 +2,7 @@ const { createApp } = Vue
 createApp ({
     data() {  
         return{
+            newMessage:"",
             chatSelected:0,
             contacts: [
                     {
@@ -174,6 +175,18 @@ createApp ({
     methods:{
         chatClick(index){
             this.chatSelected=index
+        },
+        addMessage(){
+            this.contacts[this.chatSelected].messages.push({
+                date: '10/01/2020 15:51:00',
+                message:this.newMessage ,
+                status: 'sent'
+                
+            });
+            this.newMessage="" 
+            
+            
+            
         }
     }
 }).mount("#app")
