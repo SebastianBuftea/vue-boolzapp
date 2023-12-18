@@ -36,7 +36,7 @@ createApp ({
                     name: 'Fabio',
                     avatar: './img/avatar_2.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'20/03/2020 16:35',
                     messages: [
                             {
                             date: '20/03/2020 16:30',
@@ -60,7 +60,7 @@ createApp ({
                     name: 'Samuele',
                     avatar: './img/avatar_3.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'28/03/2020 16:15',
                     messages: [
                             {
                             date: '28/03/2020 10:10',
@@ -83,7 +83,7 @@ createApp ({
                     name: 'Alessandro B.',
                     avatar: './img/avatar_4.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'10/01/2020 15:50',
                     messages: [
                             {
                             date: '10/01/2020 15:30',
@@ -101,7 +101,7 @@ createApp ({
                     name: 'Alessandro L.',
                     avatar: './img/avatar_5.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'10/01/2020 15:50',
                     messages: [
                             {
                             date: '10/01/2020 15:30',
@@ -119,7 +119,7 @@ createApp ({
                     name: 'Claudia',
                     avatar: './img/avatar_6.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'10/01/2020 15:51',
                     messages: [
                             {
                             date: '10/01/2020 15:30',
@@ -142,7 +142,7 @@ createApp ({
                     name: 'Federico',
                     avatar: './img/avatar_7.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'10/01/2020 15:50',
                     messages: [
                             {
                             date: '10/01/2020 15:30',
@@ -160,7 +160,7 @@ createApp ({
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
                     visible: true,
-                    lastAccessData:'',
+                    lastAccessData:'10/01/2020 15:51',
                     messages: [
                             {
                             date: '10/01/2020 15:30',
@@ -188,7 +188,13 @@ createApp ({
     methods:{
         dayDate(){
             let today= dt.now();
-             let dateLastMessage=`${today.year}/${today.month}/${today.day} ${today.hour}:${today.minute}`
+            let minutes=today.minute;
+
+            if (minutes<=9){
+                minutes=`0${today.minute}`  
+            }
+
+             let dateLastMessage=`${today.year}/${today.month}/${today.day} ${today.hour}:${minutes}`
              return dateLastMessage;
         },
         chatClick(index){
@@ -211,8 +217,10 @@ createApp ({
                     message:"ok",
                     status: 'received',
                     })
-                 this.contacts[this.chatSelected].lastAccessData=this.dayDate();  
-
+                  this.contacts[this.chatSelected].lastAccessData=`Oggi ${this.dayDate().slice(10,16)}`;
+                  
+                  
+                
             },1000)  
         },
         searchContact(){
