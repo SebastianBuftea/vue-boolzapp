@@ -5,8 +5,11 @@
 }
 
 /* UTILITY */
-.w_ss{
+.w_write{
     width: calc(100% - 100px);
+}
+.w_searchcontacts{
+    width:90%
 }
 body{
     height: 100vh;
@@ -40,6 +43,9 @@ body{
 }
 .size_11{
     font-size: 11px ;
+}
+.disp_flex{
+    display: flex;
 }
 
 

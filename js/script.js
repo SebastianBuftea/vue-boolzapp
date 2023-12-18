@@ -2,6 +2,7 @@ const { createApp } = Vue
 createApp ({
     data() {  
         return{
+            search:"",
             newMessage:"",
             chatSelected:0,
             contacts: [
@@ -190,10 +191,19 @@ createApp ({
                     message:"ok",
                     status: 'received',
                     })
-            },1000)
-            
-            
-            
+            },1000)  
+        },
+
+        searchContact(){
+            this.contacts.forEach((element)=> {
+                console.log(element)
+                 if(element.name.toLowerCase().includes(this.search.toLowerCase())){
+                    element.visible= true;
+                }
+                else{
+                    element.visible= false;
+                }      
+            });
         }
     }
 }).mount("#app")

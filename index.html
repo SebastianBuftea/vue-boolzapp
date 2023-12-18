@@ -48,38 +48,41 @@
                     </div>
 
                     <!-- search section -->
-                    <nav class="navbar bg-body-tertiary">
-                       
-                          <div class="input-group m-1">
-                            <span class="input-group-text bg-white border-0" id="basic-addon1">
-                                <i class="fa-solid fa-magnifying-glass fa-xs" style="color: #999999;"></i>
-                            </span>
-                            <input type="text" class="form-control heigth_30 border-0" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1" @keyup.enter="pippo()">
-                          </div>
-                       
-                      </nav>
+                  
+                    <nav class="navbar bg-body-tertiary">     
+                        <span class="input-group-text bg-white border-0" id="basic-addon1">
+                             <i class="fa-solid fa-magnifying-glass fa-xs" style="color: #999999;"></i>
+                        </span> 
+                        
+                        <input type="text" 
+                               class=" heigth_30 border-0 w_searchcontacts p-1" 
+                               placeholder="Cerca o inizia una nuova chat" 
+                               aria-label="Username" aria-describedby="basic-addon1"
+                               v-model="search"
+                               @keyup="searchContact">
+                                   
+                    </nav> 
 
                       <!-- contacts div -->
-                      <div class="container height_contacts overflow-auto ">
-                        <div class="row">
+                    
+                         <ul> 
                             <!-- contacts for -->
-                            <div class="col-12 grey_container d-flex align-items-center margin_1 bg-white border-bottom border-light-subtle" 
-                                 v-for="(contact, index) in contacts" :key="index"
+                            <li  
+                                v-show="contact.visible"
+                                v-for="(contact, index) in contacts" :key="index" 
+                                class="col-12 grey_container disp_flex align-items-center margin_1 bg-white border-bottom border-light-subtle" 
                                  @click="chatClick(index)"> 
 
                                  <!-- image of contact and last message -->
-                                    <img :src="contact.avatar" alt="" class=" circle-icon">
-                                    <div class=" mx-2">
+                                    <img :src="contact.avatar" alt="" class=" circle-icon"  >
+                                    <div class=" mx-2 ">
                                         <div class="size_13 fw-bold">{{contact.name}}</div>
                                         <div class="size_11 text-secondary">
                                             {{contact.messages[contact.messages.length - 1].message.slice(0, 30)}} ...
                                         </div>         
                                     </div>
-                            </div>
-                            
-                        </div>
-                      </div>
-                      
+                             </li>
+                         </ul>    
                 </div>
                    
                 <!-- create  the chat container -->
@@ -126,7 +129,7 @@
                                 </span>
                                
                                     <input type="text" 
-                                    class=" w_ss heigth_40 border-0 p-1" 
+                                    class="w_write heigth_40 border-0 p-1" 
                                     placeholder="Scrivi un messaggio" 
                                     aria-label="Username" 
                                     aria-describedby="basic-addon1" 
