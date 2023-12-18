@@ -44,6 +44,11 @@ body{
 .size_11{
     font-size: 11px ;
 }
+.dateSize_{
+    font-size: 10px ;
+    align-self:flex-end;
+
+}
 .disp_flex{
     display: flex;
 }

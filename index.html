@@ -70,17 +70,22 @@
                             <li  
                                 v-show="contact.visible"
                                 v-for="(contact, index) in contacts" :key="index" 
-                                class="col-12 grey_container disp_flex align-items-center margin_1 bg-white border-bottom border-light-subtle" 
+                                class="list-unstyled d-flex"
                                  @click="chatClick(index)"> 
 
                                  <!-- image of contact and last message -->
+                                 <div  class="col grey_container disp_flex align-items-center margin_1 bg-white border-bottom border-light-subtle">
                                     <img :src="contact.avatar" alt="" class=" circle-icon"  >
                                     <div class=" mx-2 ">
                                         <div class="size_13 fw-bold">{{contact.name}}</div>
                                         <div class="size_11 text-secondary">
-                                            {{contact.messages[contact.messages.length - 1].message.slice(0, 30)}} ...
+                                            {{contact.messages[contact.messages.length - 1].message.slice(0, 25)}} ...
                                         </div>         
                                     </div>
+                                </div>
+                                <div>
+                                    <div class="dateSize_ mx-2">{{contact.messages[contact.messages.length - 1].date}}</div>
+                                </div>
                              </li>
                          </ul>    
                 </div>
@@ -94,8 +99,12 @@
                                 <img :src="contacts[chatSelected].avatar" alt="" class="circle-icon mx-2">
                                 <div class="mx-2">
                                     <div class="size_13 fw-bold">{{contacts[chatSelected].name}}</div>
-                                    <div class="size_11 text-secondary">
+                                    
+                                    <!-- <div class="size_11 text-secondary" v-show="contacts[0].lastAccessData==''">
                                         {{contacts[chatSelected].messages[contacts[chatSelected].messages.length - 1].date}}
+                                    </div>  -->
+                                    <div class="size_11 text-secondary">
+                                        {{contacts[chatSelected].lastAccessData}}
                                     </div>
                                 </div>
                             </div>
@@ -110,9 +119,10 @@
                     <div class="messages_container overflow-auto">
                         <div v-for="(elem, index) in contacts[chatSelected].messages " :key="index">
                             <div class="d-flex flex-column">
-                                <div class="minh_50 maxw_50 mx-4 my-1 p-2 rounded word-break"
+                                <div class="minh_50 maxw_50 my-1 mx-4 p-2 rounded word-break d-flex flex-column"
                                     :class=" elem.status== 'sent' ? 'green':'white'">
-                                    {{elem.message}}
+                                    <div class="">{{elem.message}}</div>
+                                    <div class="dateSize_">{{contacts[chatSelected].messages[index].date.slice(10,16)}}</div>
                                 </div>
                             </div>
                                 
@@ -135,18 +145,22 @@
                                     aria-describedby="basic-addon1" 
                                     v-model="newMessage"
                                     @keyup.enter="addMessage()">
+                            
 
                                 <span class="input-group-text border-0 grey_" id="basic-addon1">
                                     <i class="fa-solid fa-microphone fa-lg" style="color: #999999;"></i>
                                 </span>
-                        </nav>
+                        </nav> 
+                        
                     </div>
+                   
                 </div>
             </div> 
         </div>
        
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js" type="text/javascript"></script>
 </body>
